@@ -1,174 +1,151 @@
 /**
- * KULTURA // 01 — MOTOR DE E-COMMERCE STREETWEAR (VANILLA JS ES6+)
- * Funcionalidades:
- * - Consumo dinâmico de /data/products.json
- * - Filtros combinados (pesquisa instantânea, categoria, tamanho, preço máximo e ordenação)
- * - Suporte Multilíngue (PT-PT, PT-BR, EN) com valores em Euros (€)
- * - Modal de produto com galeria, seleção de tamanho e cor
- * - Carrinho lateral (drawer) persistido em localStorage com ponto de integração de pagamento
- * - Injeção automática de Schema.org Product JSON-LD para SEO
+ * KULTURA — MOTOR DE E-COMMERCE STREETWEAR (VANILLA JS ES6+)
+ * Layout inspirado na referência editorial WSTABLISHED / KULTURA
  */
 
 (function () {
   'use strict';
 
-  // Dicionário de Traduções (PT-PT | PT-BR | EN)
   const I18N = {
     'pt-PT': {
       ann_text: 'ENVIO GRÁTIS ACIMA DE 100 € // EXPEDIÇÃO 24/48H EUROPA',
-      nav_home: 'Home',
-      nav_shop: 'Loja',
-      nav_collections: 'Coleções',
-      nav_about: 'Sobre',
-      hero_manifesto: 'Silhuetas arquitetónicas em algodão de alta gramagem (320—500 GSM). Sem excessos, sem logótipos gritantes — apenas construção brutalista feita para durar nas ruas.',
-      hero_cta: 'SHOP NOW →',
-      cat_section_title: 'CATEGORIAS',
+      nav_home: 'HOME',
+      nav_shop: 'LOJA',
+      nav_collections: 'COLEÇÕES',
+      nav_about: 'SOBRE',
+      hero_kicker: 'STREETWEAR / CULTURA / TU',
+      hero_manifesto: 'Mais do que vestuário — é uma mentalidade. A Kultura foi criada para os sonhadores, os criadores e aqueles que permanecem autênticos no asfalto.',
+      hero_cta_label: 'SHOP NOW',
+      shop_now_small: 'Comprar',
       cat_tshirts: 'T-SHIRTS',
       cat_collections: 'COLEÇÕES',
       cat_caps: 'BONÉS',
       cat_new: 'NOVIDADES',
-      fresh_sub: 'NOVIDADES',
-      fresh_desc: 'Lotes numerados tingidos a frio em tons de betão, asfalto e café expresso. Corte amplo estruturado pensado para o movimento urbano diário.',
-      fresh_quote: '"NÃO SEGUIMOS ESTAÇÕES. CONSTRUÍMOS UNIFORMES ATEMPORAIS PARA QUEM CRIA A PRÓPRIA CULTURA NO ASFALTO."',
+      fresh_kicker: 'NOVOS LANÇAMENTOS',
+      fresh_desc: 'As peças mais recentes da Kultura. Stock limitado em algodão pesado 320-500 GSM. Não percas.',
+      view_all_btn: 'VER TUDO',
       trust_1_title: 'ENVIO RÁPIDO',
-      trust_1_desc: 'Expedição rastreada em 24/48h. Grátis acima de 100 €.',
+      trust_1_desc: 'Entrega Internacional 24/48h',
       trust_2_title: 'PAGAMENTO SEGURO',
-      trust_2_desc: 'Encriptação SSL 256-bit (MB WAY, Cartão, Apple Pay).',
+      trust_2_desc: 'Compre com Total Confiança',
       trust_3_title: 'DEVOLUÇÕES FÁCEIS',
-      trust_3_desc: 'Troca de tamanho ou devolução simples até 30 dias.',
+      trust_3_desc: 'Trocas Simples até 30 Dias',
       trust_4_title: 'QUALIDADE PREMIUM',
-      trust_4_desc: 'Algodão orgânico 320-500 GSM e costuras reforçadas.',
+      trust_4_desc: 'Feito para Durar',
       shop_title: 'PRODUTOS EM DESTAQUE',
-      filter_search_label: 'PESQUISA INSTANTÂNEA',
       filter_search_ph: 'PESQUISAR POR NOME...',
-      filter_cat_label: 'CATEGORIA',
-      filter_size_label: 'TAMANHO',
-      filter_price_label: 'PREÇO MÁXIMO',
-      filter_sort_label: 'ORDENAR POR',
-      opt_all_cats: 'TODAS',
-      opt_all_sizes: 'TODOS',
-      opt_all_prices: 'SEM LIMITE (€)',
-      sort_featured: 'DESTAQUES',
+      opt_all_cats: 'CATEGORIA: TODAS',
+      opt_all_sizes: 'TAMANHO: TODOS',
+      opt_all_prices: 'PREÇO: TODOS (€)',
+      sort_featured: 'ORDEM: DESTAQUES',
       sort_asc: 'PREÇO: MENOR → MAIOR',
       sort_desc: 'PREÇO: MAIOR → MENOR',
       badge_new: 'NOVO',
       badge_soldout: 'ESGOTADO',
       modal_size_label: 'SELECIONAR TAMANHO',
       modal_color_label: 'SELECIONAR COR',
-      modal_add_btn: 'ADICIONAR AO CARRINHO →',
-      modal_soldout_btn: 'ESGOTADO // SOLD OUT',
+      modal_add_btn: 'ADICIONAR AO CARRINHO',
+      modal_soldout_btn: 'ESGOTADO',
       cart_title: 'CARRINHO',
       cart_empty: 'O SEU CARRINHO ESTÁ VAZIO.',
       cart_total_label: 'TOTAL (EUR)',
-      cart_checkout_btn: 'FINALIZAR ENCOMENDA →',
-      footer_nav: 'DIRETÓRIO',
-      checkout_alert: 'Ambiente de Demonstração: O ponto de integração de pagamento (Stripe / MB WAY / Adyen) está pronto em assets/js/app.js.'
+      cart_checkout_btn: 'FINALIZAR ENCOMENDA',
+      checkout_alert: 'Ambiente de Demonstração: O ponto de integração de pagamento (Stripe / MB WAY / Shopify) está pronto em assets/js/app.js.'
     },
     'pt-BR': {
       ann_text: 'FRETE GRÁTIS ACIMA DE 100 € // ENVIO EXPRESSO INTERNACIONAL',
-      nav_home: 'Home',
-      nav_shop: 'Loja',
-      nav_collections: 'Coleções',
-      nav_about: 'Sobre',
-      hero_manifesto: 'Modelagens arquitetônicas em algodão pesado (320—500 GSM). Sem excessos, sem logos gritantes — apenas construção brutalista feita para durar nas ruas.',
-      hero_cta: 'SHOP NOW →',
-      cat_section_title: 'CATEGORIAS',
+      nav_home: 'HOME',
+      nav_shop: 'LOJA',
+      nav_collections: 'COLEÇÕES',
+      nav_about: 'SOBRE',
+      hero_kicker: 'STREETWEAR / CULTURA / VOCÊ',
+      hero_manifesto: 'Mais do que roupa — é uma mentalidade. A Kultura é feita para os sonhadores, os realizadores e aqueles que permanecem reais nas ruas.',
+      hero_cta_label: 'SHOP NOW',
+      shop_now_small: 'Comprar',
       cat_tshirts: 'CAMISETAS',
       cat_collections: 'COLEÇÕES',
       cat_caps: 'BONÉS',
       cat_new: 'NOVIDADES',
-      fresh_sub: 'NOVIDADES',
-      fresh_desc: 'Drops numerados tingidos a frio em tons de concreto, asfalto e café expresso. Modelagem boxy estruturada para o movimento urbano.',
-      fresh_quote: '"NÃO SEGUIMOS ESTAÇÕES. CONSTRUÍMOS UNIFORMES ATEMPORAIS PARA QUEM CRIA A PRÓPRIA CULTURA NO ASFALTO."',
+      fresh_kicker: 'NOVOS LANÇAMENTOS',
+      fresh_desc: 'Os lançamentos mais recentes da Kultura. Estoque limitado em algodão 320-500 GSM. Não perca.',
+      view_all_btn: 'VER TUDO',
       trust_1_title: 'ENVIO RÁPIDO',
-      trust_1_desc: 'Despacho rastreado em 24/48h. Grátis acima de 100 €.',
+      trust_1_desc: 'Entrega Internacional 24/48h',
       trust_2_title: 'PAGAMENTO SEGURO',
-      trust_2_desc: 'Criptografia SSL 256-bit (Cartão Internacional, Apple Pay).',
+      trust_2_desc: 'Compre com Total Confiança',
       trust_3_title: 'TROCAS FÁCEIS',
-      trust_3_desc: 'Troca de tamanho ou devolução simples em até 30 dias.',
+      trust_3_desc: 'Devolução Simples em 30 Dias',
       trust_4_title: 'QUALIDADE PREMIUM',
-      trust_4_desc: 'Algodão orgânico 320-500 GSM e costuras reforçadas.',
+      trust_4_desc: 'Feito para Durar',
       shop_title: 'PRODUTOS EM DESTAQUE',
-      filter_search_label: 'BUSCA INSTANTÂNEA',
       filter_search_ph: 'BUSCAR POR NOME...',
-      filter_cat_label: 'CATEGORIA',
-      filter_size_label: 'TAMANHO',
-      filter_price_label: 'PREÇO MÁXIMO',
-      filter_sort_label: 'ORDENAR POR',
-      opt_all_cats: 'TODAS',
-      opt_all_sizes: 'TODOS',
-      opt_all_prices: 'SEM LIMITE (€)',
-      sort_featured: 'DESTAQUES',
+      opt_all_cats: 'CATEGORIA: TODAS',
+      opt_all_sizes: 'TAMANHO: TODOS',
+      opt_all_prices: 'PREÇO: TODOS (€)',
+      sort_featured: 'ORDEM: DESTAQUES',
       sort_asc: 'PREÇO: MENOR → MAIOR',
       sort_desc: 'PREÇO: MAIOR → MENOR',
       badge_new: 'NOVO',
       badge_soldout: 'ESGOTADO',
       modal_size_label: 'SELECIONAR TAMANHO',
       modal_color_label: 'SELECIONAR COR',
-      modal_add_btn: 'ADICIONAR AO CARRINHO →',
-      modal_soldout_btn: 'ESGOTADO // SOLD OUT',
+      modal_add_btn: 'ADICIONAR AO CARRINHO',
+      modal_soldout_btn: 'ESGOTADO',
       cart_title: 'CARRINHO',
       cart_empty: 'SEU CARRINHO ESTÁ VAZIO.',
       cart_total_label: 'TOTAL (EUR)',
-      cart_checkout_btn: 'FINALIZAR COMPRA →',
-      footer_nav: 'DIRETÓRIO',
-      checkout_alert: 'Ambiente de Teste: O ponto de integração de checkout real está documentado em assets/js/app.js.'
+      cart_checkout_btn: 'FINALIZAR COMPRA',
+      checkout_alert: 'Ambiente de Demonstração: O ponto de integração de checkout está pronto em assets/js/app.js.'
     },
     'en': {
-      ann_text: 'FREE SHIPPING ON ORDERS OVER 100 € // WORLDWIDE EXPRESS DISPATCH',
-      nav_home: 'Home',
-      nav_shop: 'Shop',
-      nav_collections: 'Collections',
-      nav_about: 'About',
-      hero_manifesto: 'Architectural silhouettes crafted from heavyweight 320—500 GSM organic cotton. No fluff, no loud logos — just brutalist construction built for the streets.',
-      hero_cta: 'SHOP NOW →',
-      cat_section_title: 'CATEGORIES',
+      ann_text: 'FREE SHIPPING ON ORDERS OVER 100 € // WORLDWIDE EXPRESS DELIVERY',
+      nav_home: 'HOME',
+      nav_shop: 'SHOP',
+      nav_collections: 'COLLECTIONS',
+      nav_about: 'ABOUT',
+      hero_kicker: 'STREETWEAR / CULTURE / YOU',
+      hero_manifesto: 'More than clothing — it’s a mindset. Kultura is for the dreamers, the doers, and the ones who stay solid.',
+      hero_cta_label: 'SHOP NOW',
+      shop_now_small: 'Shop Now',
       cat_tshirts: 'T-SHIRTS',
       cat_collections: 'COLLECTIONS',
-      cat_caps: 'HEADWEAR',
-      cat_new: 'FRESH DROPS',
-      fresh_sub: 'ARCHIVE DROPS',
-      fresh_desc: 'Numbered small-batch garments cold-dyed in concrete, asphalt, and espresso tones. Boxy architectural cuts engineered for daily movement.',
-      fresh_quote: '"WE DO NOT FOLLOW SEASONS. WE ENGINEER TIMELESS UNIFORMS FOR THOSE BUILDING CULTURE ON CONCRETE."',
-      trust_1_title: 'FAST DISPATCH',
-      trust_1_desc: 'Tracked 24/48h shipping. Free on orders over 100 €.',
-      trust_2_title: 'SECURE CHECKOUT',
-      trust_2_desc: '256-bit SSL encrypted checkout (Cards, Apple Pay, Klarna).',
+      cat_caps: 'CAPS',
+      cat_new: 'NEW ARRIVALS',
+      fresh_kicker: 'NEW ARRIVALS',
+      fresh_desc: 'The latest pieces from Kultura. Limited stock. Don’t miss out.',
+      view_all_btn: 'VIEW ALL',
+      trust_1_title: 'FAST SHIPPING',
+      trust_1_desc: 'Worldwide Delivery',
+      trust_2_title: 'SECURE PAYMENTS',
+      trust_2_desc: 'Shop with Confidence',
       trust_3_title: 'EASY RETURNS',
-      trust_3_desc: 'Hassle-free size exchange or return within 30 days.',
-      trust_4_title: 'HEAVYWEIGHT QUALITY',
-      trust_4_desc: '320-500 GSM combed organic cotton & reinforced seams.',
+      trust_3_desc: 'Hassle-Free Returns',
+      trust_4_title: 'PREMIUM QUALITY',
+      trust_4_desc: 'Built to Last',
       shop_title: 'FEATURED PRODUCTS',
-      filter_search_label: 'INSTANT SEARCH',
       filter_search_ph: 'SEARCH BY NAME...',
-      filter_cat_label: 'CATEGORY',
-      filter_size_label: 'SIZE',
-      filter_price_label: 'MAX PRICE',
-      filter_sort_label: 'SORT BY',
-      opt_all_cats: 'ALL',
-      opt_all_sizes: 'ALL',
-      opt_all_prices: 'NO LIMIT (€)',
-      sort_featured: 'FEATURED',
+      opt_all_cats: 'CATEGORY: ALL',
+      opt_all_sizes: 'SIZE: ALL',
+      opt_all_prices: 'PRICE: ALL (€)',
+      sort_featured: 'SORT: FEATURED',
       sort_asc: 'PRICE: LOW → HIGH',
       sort_desc: 'PRICE: HIGH → LOW',
-      badge_new: 'NEW DROP',
+      badge_new: 'NEW',
       badge_soldout: 'SOLD OUT',
       modal_size_label: 'SELECT SIZE',
       modal_color_label: 'SELECT COLOR',
-      modal_add_btn: 'ADD TO CART →',
+      modal_add_btn: 'ADD TO CART',
       modal_soldout_btn: 'SOLD OUT',
       cart_title: 'CART',
       cart_empty: 'YOUR CART IS CURRENTLY EMPTY.',
       cart_total_label: 'TOTAL (EUR)',
-      cart_checkout_btn: 'PROCEED TO CHECKOUT →',
-      footer_nav: 'DIRECTORY',
-      checkout_alert: 'Staging Environment: Payment gateway integration hook (Stripe / Shopify / Adyen) is ready in assets/js/app.js.'
+      cart_checkout_btn: 'PROCEED TO CHECKOUT',
+      checkout_alert: 'Staging Environment: Payment gateway hook (Stripe / Shopify / Adyen) is documented in assets/js/app.js.'
     }
   };
 
-  // Estado Global
   const state = {
-    lang: localStorage.getItem('kultura_lang_v1') || 'pt-PT',
+    lang: localStorage.getItem('kultura_lang_v2') || 'pt-PT',
     products: [],
     filtered: [],
     filters: {
@@ -181,10 +158,9 @@
     activeProduct: null,
     selectedSize: null,
     selectedColor: null,
-    cart: JSON.parse(localStorage.getItem('kultura_cart_v1') || '[]')
+    cart: JSON.parse(localStorage.getItem('kultura_cart_v2') || '[]')
   };
 
-  // Utilitários de Tradução e Moeda (EUR €)
   function t(key) {
     const dict = I18N[state.lang] || I18N['pt-PT'];
     return dict[key] || I18N['pt-PT'][key] || key;
@@ -201,13 +177,13 @@
     return new Intl.NumberFormat(locale, {
       style: 'currency',
       currency: 'EUR'
-    }).format(Number(amount) || 0);
+    }).format(Number(amount) || 0) + ' EUR';
   }
 
-  // Referências DOM
   const dom = {
     grid: document.getElementById('products-grid'),
     resultsCounter: document.getElementById('results-counter'),
+    resetFiltersLink: document.getElementById('reset-filters-link'),
     searchInput: document.getElementById('search-input'),
     headerSearchInput: document.getElementById('header-search-input'),
     headerSearchBar: document.getElementById('header-search-bar'),
@@ -220,7 +196,6 @@
     mobileMenuBtn: document.getElementById('mobile-menu-btn'),
     mobileNavDrawer: document.getElementById('mobile-nav-drawer'),
 
-    // Modal
     modalBackdrop: document.getElementById('modal-backdrop'),
     productModal: document.getElementById('product-modal'),
     modalCloseBtn: document.getElementById('modal-close-btn'),
@@ -234,7 +209,6 @@
     modalColors: document.getElementById('modal-colors'),
     modalAddBtn: document.getElementById('modal-add-btn'),
 
-    // Carrinho
     openCartBtn: document.getElementById('open-cart-btn'),
     closeCartBtn: document.getElementById('close-cart-btn'),
     drawerBackdrop: document.getElementById('drawer-backdrop'),
@@ -245,13 +219,12 @@
     checkoutBtn: document.getElementById('checkout-btn')
   };
 
-  // 1. Inicialização e Carregamento do JSON
   async function init() {
     bindEvents();
     updateCartUI();
 
     try {
-      const res = await fetch('data/products.json?v=2026112201', { cache: 'no-store' });
+      const res = await fetch('data/products.json?v=2026112202', { cache: 'no-store' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       state.products = data.products || [];
@@ -259,11 +232,9 @@
       applyLanguage(state.lang);
     } catch (err) {
       console.error('Erro ao carregar data/products.json:', err);
-      dom.grid.innerHTML = `<p style="padding: 40px; color: var(--color-offwhite-muted);">Erro ao carregar catálogo de produtos.</p>`;
     }
   }
 
-  // 2. Injeção de Schema.org Product em JSON-LD para SEO
   function injectSchemaOrgJSONLD(products) {
     const schemaEl = document.getElementById('schema-jsonld');
     if (!schemaEl) return;
@@ -271,7 +242,7 @@
     const itemList = {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      'name': 'KULTURA // 01 Streetwear Catalog',
+      'name': 'KULTURA Streetwear Catalog',
       'itemListElement': products.map((p, idx) => ({
         '@type': 'ListItem',
         'position': idx + 1,
@@ -294,11 +265,10 @@
     schemaEl.textContent = JSON.stringify(itemList);
   }
 
-  // 3. Aplicação de Idioma
   function applyLanguage(lang) {
     if (!I18N[lang]) lang = 'pt-PT';
     state.lang = lang;
-    localStorage.setItem('kultura_lang_v1', lang);
+    localStorage.setItem('kultura_lang_v2', lang);
     document.documentElement.setAttribute('lang', lang);
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -306,7 +276,9 @@
     });
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
-      el.textContent = t(el.getAttribute('data-i18n'));
+      const key = el.getAttribute('data-i18n');
+      if (key === 'fresh_motto') return;
+      el.textContent = t(key);
     });
 
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
@@ -317,7 +289,6 @@
     updateCartUI();
   }
 
-  // 4. Aplicação de Filtros e Ordenação
   function applyFilters() {
     const q = state.filters.search.toLowerCase().trim();
 
@@ -341,15 +312,16 @@
     renderProductsGrid();
   }
 
-  // 5. Renderização da Grelha de Produtos
   function renderProductsGrid() {
-    dom.resultsCounter.textContent = `${state.filtered.length} ITEMS`;
+    if (dom.resultsCounter) {
+      dom.resultsCounter.textContent = state.filtered.length;
+    }
 
     if (!state.filtered.length) {
       dom.grid.innerHTML = `
-        <div style="grid-column: 1 / -1; padding: 64px 20px; text-align: center; border: 1px solid var(--color-border);">
-          <p style="font-family: var(--font-condensed); letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-offwhite-muted);">
-            NENHUMA PEÇA CORRESPONDE AOS FILTROS SELECIONADOS.
+        <div style="grid-column: 1 / -1; padding: 48px 20px; text-align: center; background: #EBE9E4;">
+          <p style="font-family: var(--font-condensed); letter-spacing: 0.14em; text-transform: uppercase;">
+            NENHUMA PEÇA ENCONTRADA COM ESTES FILTROS.
           </p>
         </div>
       `;
@@ -358,25 +330,23 @@
 
     dom.grid.innerHTML = state.filtered.map(p => {
       const title = tField(p.name);
-      const catLabel = tField(p.categoryLabel);
       const isSoldOut = p.stock <= 0 || p.badge === 'esgotado';
       const badgeHTML = isSoldOut
-        ? `<span class="product-badge badge-esgotado">${t('badge_soldout')}</span>`
-        : (p.badge === 'novo' ? `<span class="product-badge badge-novo">${t('badge_new')}</span>` : '');
+        ? `<span class="product-badge">${t('badge_soldout')}</span>`
+        : '';
 
       return `
-        <article class="product-card" data-product-id="${p.id}" tabindex="0" role="button" aria-label="${title} - ${formatEUR(p.price)}">
+        <article class="product-card" data-product-id="${p.id}" tabindex="0" role="button" aria-label="${title}">
           <div class="product-card-media">
             ${badgeHTML}
-            <img src="${p.images[0]}" alt="${title}" class="product-card-img" loading="lazy" width="600" height="800">
+            <img src="${p.images[0]}" alt="${title}" class="product-card-img" loading="lazy" width="500" height="500">
           </div>
-          <div class="product-card-body">
-            <span class="product-card-category">${catLabel} // ${p.sku}</span>
-            <h3 class="product-card-title">${title}</h3>
-            <div class="product-card-footer">
-              <span class="product-card-price">${formatEUR(p.price)}</span>
-              <span class="product-card-arrow" aria-hidden="true">→</span>
+          <div class="product-card-info">
+            <div>
+              <h3 class="product-card-title">${title}</h3>
+              <p class="product-card-price">${formatEUR(p.price)}</p>
             </div>
+            <span class="product-card-arrow" aria-hidden="true">→</span>
           </div>
         </article>
       `;
@@ -393,26 +363,24 @@
     });
   }
 
-  // 6. Modal de Detalhe do Produto
   function openModal(productId) {
     const product = state.products.find(p => p.id === productId);
     if (!product) return;
 
     state.activeProduct = product;
     state.selectedSize = product.sizes && product.sizes[0] ? product.sizes[0] : 'M';
-    state.selectedColor = product.colors && product.colors[0] ? product.colors[0] : { name: 'Black', hex: '#0B0B0B' };
+    state.selectedColor = product.colors && product.colors[0] ? product.colors[0] : { name: 'Black', hex: '#111111' };
 
-    dom.modalSku.textContent = `// ${product.sku}`;
+    dom.modalSku.textContent = `${tField(product.categoryLabel)} // ${product.sku}`;
     dom.modalTitle.textContent = tField(product.name);
     dom.modalPrice.textContent = formatEUR(product.price);
     dom.modalDesc.textContent = tField(product.description);
     dom.modalMainImg.src = product.images[0];
     dom.modalMainImg.alt = tField(product.name);
 
-    // Miniaturas da galeria
     dom.modalThumbs.innerHTML = (product.images || []).map((imgUrl, idx) => `
-      <button type="button" class="modal-thumb-btn ${idx === 0 ? 'active' : ''}" data-img="${imgUrl}" aria-label="Ver foto ${idx + 1}">
-        <img src="${imgUrl}" alt="Miniatura ${idx + 1}">
+      <button type="button" class="modal-thumb-btn ${idx === 0 ? 'active' : ''}" data-img="${imgUrl}">
+        <img src="${imgUrl}" alt="Foto ${idx + 1}">
       </button>
     `).join('');
 
@@ -429,13 +397,11 @@
     const isSoldOut = product.stock <= 0 || product.badge === 'esgotado';
     dom.modalAddBtn.disabled = isSoldOut;
     dom.modalAddBtn.querySelector('span').textContent = isSoldOut ? t('modal_soldout_btn') : t('modal_add_btn');
-    dom.modalAddBtn.style.opacity = isSoldOut ? '0.45' : '1';
 
     dom.modalBackdrop.classList.add('active');
     dom.productModal.classList.add('active');
     dom.productModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
-    dom.modalCloseBtn.focus();
   }
 
   function renderModalSelectors() {
@@ -478,7 +444,6 @@
     state.activeProduct = null;
   }
 
-  // 7. Gestão do Carrinho (Drawer + localStorage)
   function addToCart() {
     const p = state.activeProduct;
     if (!p || p.stock <= 0) return;
@@ -519,7 +484,7 @@
   }
 
   function saveCart() {
-    localStorage.setItem('kultura_cart_v1', JSON.stringify(state.cart));
+    localStorage.setItem('kultura_cart_v2', JSON.stringify(state.cart));
     updateCartUI();
   }
 
@@ -528,7 +493,7 @@
     dom.cartCount.textContent = count;
 
     if (!state.cart.length) {
-      dom.cartItemsList.innerHTML = `<p style="color: var(--color-offwhite-muted); font-family: var(--font-condensed); letter-spacing: 0.14em;">${t('cart_empty')}</p>`;
+      dom.cartItemsList.innerHTML = `<p style="color: var(--text-dark-muted); font-family: var(--font-condensed); letter-spacing: 0.14em;">${t('cart_empty')}</p>`;
       dom.cartTotalPrice.textContent = formatEUR(0);
       return;
     }
@@ -543,12 +508,12 @@
             <p class="cart-item-title">${tField(item.name)}</p>
             <p class="cart-item-meta">${item.size} // ${item.colorName}</p>
             <div class="cart-qty-row">
-              <button type="button" class="qty-btn" data-key="${item.key}" data-delta="-1" aria-label="Diminuir quantidade">−</button>
+              <button type="button" class="qty-btn" data-key="${item.key}" data-delta="-1">−</button>
               <span class="qty-val">${item.qty}</span>
-              <button type="button" class="qty-btn" data-key="${item.key}" data-delta="1" aria-label="Aumentar quantidade">+</button>
+              <button type="button" class="qty-btn" data-key="${item.key}" data-delta="1">+</button>
             </div>
           </div>
-          <div style="font-family: var(--font-condensed); font-weight: 700;">
+          <div style="font-family: var(--font-condensed); font-weight: 700; font-size: 0.85rem;">
             ${formatEUR(item.price * item.qty)}
           </div>
         </div>
@@ -578,14 +543,11 @@
     document.body.classList.remove('no-scroll');
   }
 
-  // 8. Eventos de Interface
   function bindEvents() {
-    // Seletor de Idioma
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
     });
 
-    // Pesquisa Instantânea (Toolbar + Header)
     dom.searchInput.addEventListener('input', (e) => {
       state.filters.search = e.target.value;
       dom.headerSearchInput.value = e.target.value;
@@ -609,7 +571,6 @@
       dom.headerSearchBar.classList.remove('open');
     });
 
-    // Seletores de Filtro
     dom.filterCategory.addEventListener('change', (e) => {
       state.filters.category = e.target.value;
       applyFilters();
@@ -630,7 +591,19 @@
       applyFilters();
     });
 
-    // Clique nos 4 Cards de Categoria
+    if (dom.resetFiltersLink) {
+      dom.resetFiltersLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        state.filters = { search: '', category: 'all', size: 'all', maxPrice: 999, sort: 'featured' };
+        dom.searchInput.value = '';
+        dom.filterCategory.value = 'all';
+        dom.filterSize.value = 'all';
+        dom.filterPrice.value = '999';
+        dom.sortSelect.value = 'featured';
+        applyFilters();
+      });
+    }
+
     document.querySelectorAll('.category-card').forEach(card => {
       card.addEventListener('click', () => {
         const cat = card.dataset.filterCat;
@@ -641,7 +614,6 @@
       });
     });
 
-    // Menu Hambúrguer Mobile
     dom.mobileMenuBtn.addEventListener('click', () => {
       const isOpen = dom.mobileNavDrawer.classList.toggle('open');
       dom.mobileMenuBtn.setAttribute('aria-expanded', isOpen);
@@ -654,36 +626,21 @@
       });
     });
 
-    // Modal
     dom.modalCloseBtn.addEventListener('click', closeModal);
     dom.modalBackdrop.addEventListener('click', closeModal);
     dom.modalAddBtn.addEventListener('click', addToCart);
 
-    // Carrinho
     dom.openCartBtn.addEventListener('click', openCart);
     dom.closeCartBtn.addEventListener('click', closeCart);
     dom.drawerBackdrop.addEventListener('click', closeCart);
 
-    // Checkout (Ponto de Integração Comentado)
     dom.checkoutBtn.addEventListener('click', () => {
       /*
-       * ======================================================================
        * [PONTO DE INTEGRAÇÃO DE PAGAMENTO REAL — STRIPE / MB WAY / SHOPIFY]
-       * Para ativar o checkout em produção, envie `state.cart` para o seu endpoint:
-       *
-       * const response = await fetch('/api/checkout/create-session', {
-       *   method: 'POST',
-       *   headers: { 'Content-Type': 'application/json' },
-       *   body: JSON.stringify({ items: state.cart, currency: 'EUR', locale: state.lang })
-       * });
-       * const { checkoutUrl } = await response.json();
-       * window.location.href = checkoutUrl;
-       * ======================================================================
        */
       alert(t('checkout_alert'));
     });
 
-    // Fechar com tecla ESC
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeModal();
