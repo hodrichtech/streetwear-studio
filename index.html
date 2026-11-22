@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KULTURA // 01 — Built For The Real Ones | Streetwear Editorial Store (€)</title>
+  <meta name="description" content="KULTURA // 01 — Editorial Streetwear & Heavyweight Essentials. Rooted in culture. Built for tomorrow. Envio grátis acima de 100 €.">
+  <meta name="theme-color" content="#0B0B0B">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hodrichtech.github.io/streetwear-studio/">
+  <meta property="og:title" content="KULTURA // 01 — BUILT FOR THE REAL ONES.">
+  <meta property="og:description" content="Editorial Streetwear Archive. Heavyweight 320-500 GSM garments, concrete minimalism, built for tomorrow.">
+  <meta property="og:image" content="https://hodrichtech.github.io/streetwear-studio/assets/img/placeholder-hero.webp">
+
+  <!-- Google Fonts com font-display: swap (Archivo Black, Inter Tight, Inter, Caveat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600&family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="assets/css/style.css?v=2026112201">
+
+  <!-- Schema.org Product / ItemList JSON-LD (atualizado dinamicamente também pelo JS) -->
+  <script type="application/ld+json" id="schema-jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "KULTURA // 01 Streetwear",
+    "description": "Rooted in culture. Built for tomorrow. Heavyweight streetwear essentials.",
+    "url": "https://hodrichtech.github.io/streetwear-studio/",
+    "currenciesAccepted": "EUR",
+    "priceRange": "€€"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. BARRA DE ANÚNCIO NO TOPO + SELETOR DE REGIÃO / IDIOMA / MOEDA
+       ======================================================================== -->
+  <div class="announcement-bar" role="region" aria-label="Anúncio e Região">
+    <div class="announcement-inner">
+      <p class="announcement-text" data-i18n="ann_text">ENVIO GRÁTIS ACIMA DE 100 € // FREE SHIPPING ON ORDERS OVER 100 €</p>
+      <div class="region-controls">
+        <div class="lang-selector" role="group" aria-label="Idioma / Language">
+          <button type="button" class="lang-btn active" data-lang="pt-PT">PT-PT</button>
+          <button type="button" class="lang-btn" data-lang="pt-BR">PT-BR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <span class="currency-badge">EUR (€)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2. HEADER FIXO (Logótipo à esquerda, menu central, pesquisa, conta, carrinho)
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container header-grid">
+      <a href="#home" class="brand-logo" aria-label="KULTURA // 01 Home">
+        KULTURA <span>// 01</span>
+      </a>
+
+      <!-- Menu Central Desktop -->
+      <nav class="main-nav" aria-label="Menu Principal">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link" data-i18n="nav_home">Home</a></li>
+          <li><a href="#loja" class="nav-link" data-i18n="nav_shop">Loja</a></li>
+          <li><a href="#colecoes" class="nav-link" data-i18n="nav_collections">Coleções</a></li>
+          <li><a href="#sobre" class="nav-link" data-i18n="nav_about">Sobre</a></li>
+        </ul>
+      </nav>
+
+      <!-- Ícones à Direita: Pesquisa, Conta, Carrinho com Contador e Hambúrguer Mobile -->
+      <div class="header-icons">
+        <button type="button" class="icon-btn" id="toggle-search-btn" aria-label="Abrir Pesquisa">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button type="button" class="icon-btn" id="account-btn" aria-label="Conta de Cliente">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+
+        <button type="button" class="icon-btn" id="open-cart-btn" aria-label="Abrir Carrinho">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+
+        <button type="button" class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <line x1="3" y1="7" x2="21" y2="7"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="17" x2="21" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barra de Pesquisa Instantânea Expansível -->
+    <div class="header-search-bar" id="header-search-bar">
+      <div class="header-search-inner">
+        <input type="search" id="header-search-input" class="header-search-input" placeholder="PESQUISAR PEÇA POR NOME (EX: HOODIE, CARGO, BOX TEE)..." aria-label="Pesquisar produto por nome">
+        <button type="button" class="btn-outline-editorial" id="close-search-btn" style="min-height: 42px; padding: 0 16px;">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Gaveta de Navegação Mobile -->
+  <nav class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Menu Mobile">
+    <ul class="mobile-nav-list">
+      <li><a href="#home" data-i18n="nav_home">Home</a></li>
+      <li><a href="#loja" data-i18n="nav_shop">Loja</a></li>
+      <li><a href="#colecoes" data-i18n="nav_collections">Coleções</a></li>
+      <li><a href="#sobre" data-i18n="nav_about">Sobre</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- ======================================================================
+         3. HERO EM ECRÃ CHEIO (Modelo + Marca Gigante Atrás + Manifesto + Coordenadas)
+         ====================================================================== -->
+    <section class="hero-section" id="home">
+      <div class="hero-backdrop-watermark" aria-hidden="true">KULTURA</div>
+
+      <div class="hero-media-wrapper">
+        <img src="assets/img/placeholder-hero.webp" alt="Modelo urbano em ambiente brutalista de betão vestindo KULTURA // 01" class="hero-model-img" width="1600" height="1000">
+        <div class="hero-vignette"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-editorial-meta">
+          <span>38.7223° N, 9.1393° W // CONCRETE ARCHIVE</span>
+          <span>EST. 2024 — DROP 01/26</span>
+        </div>
+
+        <h1 class="hero-headline">BUILT FOR THE REAL ONES.</h1>
+        <p class="hero-manifesto" data-i18n="hero_manifesto">
+          Silhuetas arquitetónicas em algodão de alta gramagem (320—500 GSM). Sem excessos, sem logótipos gritantes — apenas construção brutalista feita para durar nas ruas.
+        </p>
+
+        <a href="#loja" class="btn-outline-editorial">
+          <span data-i18n="hero_cta">SHOP NOW →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. GRELHA DE 4 CATEGORIAS (T-shirts, Coleções, Bonés, Novidades)
+         ====================================================================== -->
+    <section class="categories-section" id="colecoes">
+      <div class="container">
+        <div class="section-header-bar">
+          <div>
+            <span class="section-kicker">// 01 — ARCHIVE DIVISIONS</span>
+            <h2 class="section-title" data-i18n="cat_section_title">CATEGORIAS</h2>
+          </div>
+          <span style="font-family: var(--font-condensed); font-size: 0.78rem; letter-spacing: 0.16em; color: var(--color-offwhite-muted);">04 SILHOUETTES</span>
+        </div>
+
+        <div class="categories-grid">
+          <!-- Categoria 1: T-shirts -->
+          <article class="category-card" data-filter-cat="t-shirts" tabindex="0" role="button" aria-label="Filtrar T-Shirts">
+            <img src="assets/img/placeholder-cat-tshirts.webp" alt="Categoria T-shirts Heavyweight" class="category-card-img" loading="lazy" width="600" height="750">
+            <div class="category-card-overlay"></div>
+            <div class="category-card-content">
+              <h3 class="category-card-title" data-i18n="cat_tshirts">T-SHIRTS</h3>
+              <span class="category-card-cta">Shop Now →</span>
+            </div>
+          </article>
+
+          <!-- Categoria 2: Coleções -->
+          <article class="category-card" data-filter-cat="colecoes" tabindex="0" role="button" aria-label="Filtrar Coleções">
+            <img src="assets/img/placeholder-cat-colecoes.webp" alt="Categoria Coleções Brutalist" class="category-card-img" loading="lazy" width="600" height="750">
+            <div class="category-card-overlay"></div>
+            <div class="category-card-content">
+              <h3 class="category-card-title" data-i18n="cat_collections">COLEÇÕES</h3>
+              <span class="category-card-cta">Shop Now →</span>
+            </div>
+          </article>
+
+          <!-- Categoria 3: Bonés -->
+          <article class="category-card" data-filter-cat="bones" tabindex="0" role="button" aria-label="Filtrar Bonés">
+            <img src="assets/img/placeholder-cat-bones.webp" alt="Categoria Bonés e Headwear" class="category-card-img" loading="lazy" width="600" height="750">
+            <div class="category-card-overlay"></div>
+            <div class="category-card-content">
+              <h3 class="category-card-title" data-i18n="cat_caps">BONÉS</h3>
+              <span class="category-card-cta">Shop Now →</span>
+            </div>
+          </article>
+
+          <!-- Categoria 4: Novidades -->
+          <article class="category-card" data-filter-cat="novidades" tabindex="0" role="button" aria-label="Filtrar Novidades">
+            <img src="assets/img/placeholder-cat-novidades.webp" alt="Categoria Novidades Fresh Drops" class="category-card-img" loading="lazy" width="600" height="750">
+            <div class="category-card-overlay"></div>
+            <div class="category-card-content">
+              <h3 class="category-card-title" data-i18n="cat_new">NOVIDADES</h3>
+              <span class="category-card-cta">Shop Now →</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. BANNER "FRESH DROPS / NOVIDADES"
+         (Texto à esquerda, foto ao centro, frase de marca + assinatura à direita)
+         ====================================================================== -->
+    <section class="fresh-drops-banner" id="sobre">
+      <div class="container">
+        <div class="fresh-drops-grid">
+          <!-- Esquerda: Texto + CTA -->
+          <div class="fresh-col-left">
+            <div>
+              <p class="fresh-tag">// 02 — CAPSULE RELEASE</p>
+              <h2 class="fresh-heading">FRESH DROPS /<br><span data-i18n="fresh_sub">NOVIDADES</span></h2>
+              <p class="fresh-desc" data-i18n="fresh_desc">
+                Lotes numerados tingidos a frio em tons de betão, asfalto e café expresso. Corte amplo estruturado pensado para o movimento urbano diário.
+              </p>
+            </div>
+            <div>
+              <a href="#loja" class="btn-outline-editorial" data-filter-trigger="novidades">
+                <span>VIEW ALL →</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Centro: Fotografia Editorial -->
+          <div class="fresh-col-center">
+            <img src="assets/img/placeholder-fresh-drops.webp" alt="Editorial Fresh Drops Lookbook" class="fresh-center-img" loading="lazy" width="800" height="900">
+          </div>
+
+          <!-- Direita: Frase de Marca + Assinatura Manuscrita -->
+          <div class="fresh-col-right">
+            <blockquote class="fresh-manifesto-quote" data-i18n="fresh_quote">
+              "NÃO SEGUIMOS ESTAÇÕES. CONSTRUÍMOS UNIFORMES ATEMPORAIS PARA QUEM CRIA A PRÓPRIA CULTURA NO ASFALTO."
+            </blockquote>
+            <div>
+              <span class="brand-signature">Kultura Studio '24</span>
+              <p class="signature-caption">CREATIVE DIRECTION // ARCHIVE DEPT.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. BARRA DE CONFIANÇA COM 4 ÍCONES DE LINHA
+         ====================================================================== -->
+    <section class="trust-bar-section" aria-label="Garantias da Marca">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <div>
+              <h3 class="trust-title" data-i18n="trust_1_title">ENVIO RÁPIDO</h3>
+              <p class="trust-desc" data-i18n="trust_1_desc">Expedição rastreada em 24/48h. Grátis acima de 100 €.</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="11" width="18" height="11" rx="0" ry="0"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="trust-title" data-i18n="trust_2_title">PAGAMENTO SEGURO</h3>
+              <p class="trust-desc" data-i18n="trust_2_desc">Encriptação SSL 256-bit (MB WAY, Cartão, Apple Pay).</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="trust-title" data-i18n="trust_3_title">DEVOLUÇÕES FÁCEIS</h3>
+              <p class="trust-desc" data-i18n="trust_3_desc">Troca de tamanho ou devolução simples até 30 dias.</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div>
+              <h3 class="trust-title" data-i18n="trust_4_title">QUALIDADE PREMIUM</h3>
+              <p class="trust-desc" data-i18n="trust_4_desc">Algodão orgânico 320-500 GSM e costuras reforçadas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. PRODUTOS EM DESTAQUE (Grelha + Filtros por Categoria, Tamanho, Preço, Ordenação)
+         ====================================================================== -->
+    <section class="catalog-section" id="loja">
+      <div class="container">
+        <div class="section-header-bar">
+          <div>
+            <span class="section-kicker">// 03 — SEASON ARCHIVE</span>
+            <h2 class="section-title" data-i18n="shop_title">PRODUTOS EM DESTAQUE</h2>
+          </div>
+          <span id="results-counter" style="font-family: var(--font-condensed); font-size: 0.8rem; letter-spacing: 0.14em; color: var(--color-offwhite-muted);">8 ITEMS</span>
+        </div>
+
+        <!-- Barra de Filtros: Pesquisa, Categoria, Tamanho, Preço Máximo, Ordenação -->
+        <div class="filters-toolbar" role="search" aria-label="Filtros do Catálogo">
+          <div class="filter-group">
+            <label for="search-input" class="filter-label" data-i18n="filter_search_label">PESQUISA INSTANTÂNEA</label>
+            <input type="search" id="search-input" class="filter-control" placeholder="NOME DA PEÇA..." data-i18n-placeholder="filter_search_ph">
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-category" class="filter-label" data-i18n="filter_cat_label">CATEGORIA</label>
+            <select id="filter-category" class="filter-control">
+              <option value="all" data-i18n="opt_all_cats">TODAS</option>
+              <option value="t-shirts" data-i18n="cat_tshirts">T-SHIRTS</option>
+              <option value="colecoes" data-i18n="cat_collections">COLEÇÕES</option>
+              <option value="bones" data-i18n="cat_caps">BONÉS</option>
+              <option value="novidades" data-i18n="cat_new">NOVIDADES</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-size" class="filter-label" data-i18n="filter_size_label">TAMANHO</label>
+            <select id="filter-size" class="filter-control">
+              <option value="all" data-i18n="opt_all_sizes">TODOS</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="ONE SIZE">ONE SIZE</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-price" class="filter-label" data-i18n="filter_price_label">PREÇO MÁXIMO</label>
+            <select id="filter-price" class="filter-control">
+              <option value="999" data-i18n="opt_all_prices">SEM LIMITE (€)</option>
+              <option value="50">ATÉ 50 €</option>
+              <option value="100">ATÉ 100 €</option>
+              <option value="150">ATÉ 150 €</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="sort-select" class="filter-label" data-i18n="filter_sort_label">ORDENAR POR</label>
+            <select id="sort-select" class="filter-control">
+              <option value="featured" data-i18n="sort_featured">DESTAQUES</option>
+              <option value="price-asc" data-i18n="sort_asc">PREÇO: MENOR → MAIOR</option>
+              <option value="price-desc" data-i18n="sort_desc">PREÇO: MAIOR → MENOR</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Grelha de Produtos -->
+        <div class="products-grid" id="products-grid" aria-live="polite">
+          <!-- Renderizado dinamicamente via data/products.json -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       8. FOOTER ESCURO COM SILHUETA DE CIDADE, SLOGAN E NEWSLETTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <!-- Silhueta de Cidade Brutalista em SVG -->
+    <svg class="city-silhouette" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" d="M0,90 L0,55 L45,55 L45,30 L95,30 L95,62 L130,62 L130,18 L195,18 L195,48 L240,48 L240,35 L310,35 L310,65 L350,65 L350,12 L430,12 L430,52 L485,52 L485,28 L555,28 L555,58 L610,58 L610,22 L690,22 L690,46 L740,46 L740,8 L830,8 L830,54 L880,54 L880,32 L960,32 L960,60 L1020,60 L1020,16 L1105,16 L1105,50 L1160,50 L1160,26 L1240,26 L1240,56 L1310,56 L1310,20 L1390,20 L1390,48 L1440,48 L1440,90 Z"></path>
+    </svg>
+
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand-logo">KULTURA <span>// 01</span></div>
+            <p class="footer-slogan">Rooted in culture. Built for tomorrow.</p>
+            <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault();">
+              <label for="newsletter-email" class="sr-only">E-mail</label>
+              <input type="email" id="newsletter-email" class="newsletter-input" placeholder="E-MAIL ADDRESS..." required>
+              <button type="submit" class="newsletter-btn">Join the movement →</button>
+            </form>
+          </div>
+
+          <div>
+            <p class="filter-label" style="margin-bottom: 14px;" data-i18n="footer_nav">DIRETÓRIO</p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: var(--color-offwhite-muted);">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#loja" data-i18n="nav_shop">Loja</a></li>
+              <li><a href="#colecoes" data-i18n="nav_collections">Coleções</a></li>
+              <li><a href="#sobre" data-i18n="nav_about">Sobre</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="filter-label" style="margin-bottom: 14px;">SOCIAL // ARCHIVE</p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: var(--color-offwhite-muted);">
+              <li><a href="https://instagram.com" target="_blank" rel="noopener">INSTAGRAM →</a></li>
+              <li><a href="https://tiktok.com" target="_blank" rel="noopener">TIKTOK →</a></li>
+              <li><a href="https://youtube.com" target="_blank" rel="noopener">LOOKBOOK ARCHIVE →</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 KULTURA // 01 STREETWEAR. ALL RIGHTS RESERVED. [AMBIENTE DE DEMONSTRAÇÃO / TESTE]</span>
+          <span>LISBON // SÃO PAULO // LONDON — EUR (€)</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL DE DETALHE DO PRODUTO
+       ======================================================================== -->
+  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true"></div>
+  <div class="product-modal" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-product-title" aria-hidden="true">
+    <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Fechar Modal">✕</button>
+    <div class="modal-grid">
+      <div class="modal-gallery">
+        <img src="assets/img/placeholder-tee-01.webp" alt="" id="modal-main-img" class="modal-main-img">
+        <div class="modal-thumbs" id="modal-thumbs"></div>
+      </div>
+      <div class="modal-details">
+        <span class="section-kicker" id="modal-sku">SKU</span>
+        <h2 class="modal-title" id="modal-product-title">PRODUTO</h2>
+        <p class="modal-price" id="modal-product-price">0,00 €</p>
+        <p class="modal-desc" id="modal-product-desc"></p>
+
+        <div class="selector-block">
+          <span class="selector-title" data-i18n="modal_size_label">TAMANHO</span>
+          <div class="size-options" id="modal-sizes"></div>
+        </div>
+
+        <div class="selector-block">
+          <span class="selector-title" data-i18n="modal_color_label">COR</span>
+          <div class="color-options" id="modal-colors"></div>
+        </div>
+
+        <button type="button" class="btn-coffee-solid" id="modal-add-btn" style="width: 100%; margin-top: 12px;">
+          <span data-i18n="modal_add_btn">ADICIONAR AO CARRINHO →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       CARRINHO LATERAL (DRAWER) COM LOCALSTORAGE
+       ======================================================================== -->
+  <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title" id="cart-drawer-title" data-i18n="cart_title">CARRINHO</h2>
+      <button type="button" class="icon-btn" id="close-cart-btn" aria-label="Fechar Carrinho">✕</button>
+    </div>
+    <div class="drawer-body" id="cart-items-list"></div>
+    <div class="drawer-footer">
+      <div class="drawer-total-row">
+        <span data-i18n="cart_total_label">TOTAL</span>
+        <span id="cart-total-price">0,00 €</span>
+      </div>
+      <button type="button" class="btn-coffee-solid" id="checkout-btn" style="width: 100%;">
+        <span data-i18n="cart_checkout_btn">FINALIZAR COMPRA →</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Script Principal -->
+  <script src="assets/js/app.js?v=2026112201"></script>
+</body>
+</html>
