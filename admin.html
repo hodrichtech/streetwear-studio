@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Demo Admin — KULTURA // 01 — Streetwear Editorial Store (€)</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --brand: #d4af37; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+    body { background:#070a12; color:#f8fafc; height:100vh; display:flex; flex-direction:column; overflow:hidden; }
+
+    header { background:rgba(15,23,42,0.98); border-bottom:3px solid var(--brand); padding:12px 24px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; flex-wrap:wrap; gap:10px; }
+    .logo { font-family:'Outfit',sans-serif; font-size:1.15rem; font-weight:800; color:#fff; text-decoration:none; }
+    .logo span { color:var(--brand); }
+    .demo-badge { background:rgba(251,191,36,0.15); border:1px solid rgba(251,191,36,0.5); color:#fbbf24; padding:5px 12px; border-radius:20px; font-size:0.75rem; font-weight:800; display:flex; align-items:center; gap:6px; }
+    .btn-h { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); color:#f8fafc; padding:8px 14px; border-radius:10px; font-size:0.8rem; font-weight:700; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+    .btn-vitrine { background:linear-gradient(135deg, var(--brand), #000); border:none; color:#fff; }
+
+    .split { display:flex; flex:1; height:calc(100vh - 65px); overflow:hidden; }
+    .editor { width:480px; min-width:440px; max-width:520px; flex:0 0 480px; overflow-y:auto; border-right:1px solid rgba(255,255,255,0.1); padding:20px; background:#060910; }
+    .preview-col { flex:1; min-width:380px; background:#0b0f1a; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; padding:20px; }
+    .phone { width:330px; height:640px; background:#000; border:10px solid #1e293b; border-radius:36px; box-shadow:0 30px 80px rgba(0,0,0,0.9); overflow:hidden; display:flex; flex-direction:column; }
+    .phone-notch { height:20px; background:#1e293b; width:40%; margin:0 auto; border-radius:0 0 12px 12px; flex-shrink:0; }
+    #previewFrame { flex:1; width:100%; border:none; }
+
+    .tabs { display:flex; gap:4px; margin-bottom:14px; background:rgba(255,255,255,0.03); padding:4px; border-radius:12px; border:1px solid rgba(255,255,255,0.07); }
+    .tab { flex:1; background:transparent; border:none; color:#64748b; padding:8px 4px; border-radius:8px; font-weight:700; font-size:0.75rem; cursor:pointer; text-align:center; }
+    .tab.active { background:var(--brand); color:#fff; }
+    .step { display:none; }
+    .step.active { display:block; }
+
+    .card { background:rgba(15,23,42,0.85); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:14px; margin-bottom:12px; }
+    .card-title { font-weight:800; font-size:0.85rem; color:#fff; margin-bottom:10px; display:flex; align-items:center; gap:7px; }
+    .fg { margin-bottom:9px; }
+    .fg label { display:block; font-size:0.73rem; font-weight:700; color:#64748b; margin-bottom:3px; }
+    .fi { width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:9px; padding:8px 11px; color:#fff; font-size:0.83rem; outline:none; }
+    .fi:focus { border-color:var(--brand); }
+
+    .swatches { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .sw { width:34px; height:34px; border-radius:8px; border:2px solid transparent; cursor:pointer; }
+    .sw.sel { border-color:#fff; transform:scale(1.1); }
+
+    @media (max-width: 760px) {
+      .split { flex-direction:column; height:auto; overflow:visible; }
+      .editor { width:100%; max-width:100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://hodrichtech.github.io/streetwear-studio/" class="logo">⚡ Vitrine<span>Gestão</span></a>
+    <div class="demo-badge"><i class="fa-solid fa-flask"></i> Painel Admin Estático Oficial (GitHub Pages)</div>
+    <div style="display:flex;gap:8px;">
+      <a href="https://hodrichtech.github.io/streetwear-studio/" target="_blank" class="btn-h btn-vitrine"><i class="fa-solid fa-eye"></i> Ver Site</a>
+      <button class="btn-h" onclick="exportData()"><i class="fa-solid fa-download"></i> Baixar JSON</button>
+    </div>
+  </header>
+
+  <div class="split">
+    <!-- EDITOR -->
+    <div class="editor">
+      <div class="tabs">
+        <button id="tab-1" class="tab active" onclick="goStep(1)">🏢 Dados</button>
+        <button id="tab-2" class="tab" onclick="goStep(2)">🎨 Cores & Visual</button>
+        <button id="tab-3" class="tab" onclick="goStep(3)">📦 Catálogo</button>
+      </div>
+
+      <div id="step-1" class="step active">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-store" style="color:var(--brand)"></i> Identificação</div>
+          <div class="fg"><label>Nome / Título</label><input id="f-nome" class="fi" oninput="preview()"></div>
+          <div class="fg"><label>Nicho / Subtítulo</label><input id="f-nicho" class="fi" oninput="preview()"></div>
+          <div class="fg"><label>WhatsApp</label><input id="f-whatsapp" class="fi" oninput="preview()"></div>
+          <div class="fg"><label>Descrição</label><textarea id="f-desc" class="fi" rows="3" oninput="preview()"></textarea></div>
+        </div>
+      </div>
+
+      <div id="step-2" class="step">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-palette" style="color:var(--brand)"></i> Paleta de Cor Primária</div>
+          <div class="swatches">
+            <div class="sw sel" style="background:#d4af37;" onclick="setColor('#d4af37')"></div>
+            <div class="sw" style="background:#06b6d4;" onclick="setColor('#06b6d4')"></div>
+            <div class="sw" style="background:#10b981;" onclick="setColor('#10b981')"></div>
+            <div class="sw" style="background:#8b5cf6;" onclick="setColor('#8b5cf6')"></div>
+            <div class="sw" style="background:#ef4444;" onclick="setColor('#ef4444')"></div>
+            <div class="sw" style="background:#3b82f6;" onclick="setColor('#3b82f6')"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="step-3" class="step">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-boxes-stacked" style="color:var(--brand)"></i> Catálogo de Itens</div>
+          <div id="catalogList"></div>
+          <button onclick="addItem()" class="btn-h" style="width:100%; justify-content:center; margin-top:10px;">
+            <i class="fa-solid fa-plus"></i> Adicionar Item
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview-col">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <iframe id="previewFrame" src="about:blank"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var data = {"slug": "streetwear-studio", "nome": "KULTURA // 01 \u2014 Streetwear Editorial Store (\u20ac)", "nicho": "Built For The Real Ones. Vitrine Streetwear Premium em Euros (PT-PT / PT-BR / EN)", "cidade": "Brasil", "whatsapp": "5513996351877", "descricao": "", "foto": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=300", "capa": "https://images.unsplash.com/photo-1558002038-1055907df827?w=800", "corTema": "#d4af37", "plano": "ecommerce", "layoutTema": "dark", "catalogo": []};
+
+    function initForm() {
+      document.getElementById('f-nome').value = data.nome || '';
+      document.getElementById('f-nicho').value = data.nicho || '';
+      document.getElementById('f-whatsapp').value = data.whatsapp || '';
+      document.getElementById('f-desc').value = data.descricao || '';
+      renderCatalogEditor();
+      preview();
+    }
+
+    function goStep(n) {
+      document.querySelectorAll('.tab').forEach(function(t, i) { t.classList.toggle('active', i === n - 1); });
+      document.querySelectorAll('.step').forEach(function(s, i) { s.classList.toggle('active', i === n - 1); });
+    }
+
+    function setColor(hex) {
+      data.corTema = hex;
+      document.documentElement.style.setProperty('--brand', hex);
+      preview();
+    }
+
+    function renderCatalogEditor() {
+      var list = document.getElementById('catalogList');
+      var cat = data.catalogo || [];
+      list.innerHTML = cat.map(function(item, idx) {
+        return '<div style="background:rgba(255,255,255,0.03); padding:8px; border-radius:8px; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">' +
+               '<div><strong style="font-size:0.85rem;color:#fff;">' + (item.title || 'Item') + '</strong><br><small style="color:#64748b;">' + (item.priceStr || 'R$ ' + (item.price || 0)) + '</small></div>' +
+               '<button onclick="delItem(' + idx + ')" style="background:none; border:none; color:#f87171; cursor:pointer;"><i class="fa-solid fa-trash"></i></button>' +
+               '</div>';
+      }).join('');
+    }
+
+    function addItem() {
+      var title = prompt('Título do Item:');
+      if (!title) return;
+      var price = prompt('Preço (ex: R$ 49,90):', 'R$ 49,90');
+      data.catalogo = data.catalogo || [];
+      data.catalogo.push({ title: title, priceStr: price, desc: 'Novo item adicionado.' });
+      renderCatalogEditor();
+      preview();
+    }
+
+    function delItem(idx) {
+      data.catalogo.splice(idx, 1);
+      renderCatalogEditor();
+      preview();
+    }
+
+    function preview() {
+      data.nome = document.getElementById('f-nome').value;
+      data.nicho = document.getElementById('f-nicho').value;
+      data.whatsapp = document.getElementById('f-whatsapp').value;
+      data.descricao = document.getElementById('f-desc').value;
+
+      var html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>' +
+                 'body{font-family:sans-serif;background:#070a12;color:#fff;padding:20px;text-align:center;}' +
+                 '.avatar{width:90px;height:90px;border-radius:50%;border:3px solid ' + data.corTema + ';object-fit:cover;margin:20px auto;display:block;}' +
+                 '.btn{background:' + data.corTema + ';color:#fff;padding:12px 20px;border-radius:10px;text-decoration:none;display:inline-block;font-weight:700;margin-top:16px;}' +
+                 '</style></head><body>' +
+                 '<img src="' + data.foto + '" class="avatar">' +
+                 '<h2>' + data.nome + '</h2><p style="color:' + data.corTema + ';">' + data.nicho + '</p>' +
+                 '<p style="font-size:0.85rem;color:#94a3b8;margin-top:10px;">' + data.descricao + '</p>' +
+                 '<a href="#" class="btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>' +
+                 '</body></html>';
+
+      var frame = document.getElementById('previewFrame');
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      doc.open();
+      doc.write(html);
+      doc.close();
+    }
+
+    function exportData() {
+      var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'vitrine-' + (data.slug || 'demo') + '.json';
+      a.click();
+    }
+
+    window.onload = initForm;
+  </script>
+</body>
+</html>
