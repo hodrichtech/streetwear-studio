@@ -1,19 +1,20 @@
 {
   "brand": {
-    "name": "KULTURA // 01",
+    "monogram": "K",
+    "name": "KULTURA",
     "established": "EST. 2024",
-    "coordinates": "38.7223° N, 9.1393° W // LISBON — SÃO PAULO — LONDON",
+    "coordinates": "38.7223° N / 9.1393° W",
     "freeShippingThreshold": 100,
     "currency": "EUR"
   },
   "products": [
     {
-      "id": "sw-001",
-      "sku": "KLT-TEE-001",
+      "id": "klt-001",
+      "sku": "KLT-TEE-BLK",
       "name": {
-        "pt-PT": "HEAVYWEIGHT BOX TEE — CONCRETE ARCHIVE [EXEMPLO]",
-        "pt-BR": "CAMISETA HEAVYWEIGHT BOX — CONCRETE ARCHIVE [EXEMPLO]",
-        "en": "HEAVYWEIGHT BOX TEE — CONCRETE ARCHIVE [EXAMPLE]"
+        "pt-PT": "Brushstroke Heavy Tee — Preto",
+        "pt-BR": "Camiseta Brushstroke Heavy — Preta",
+        "en": "Brushstroke Heavy Tee — Black"
       },
       "category": "t-shirts",
       "categoryLabel": {
@@ -21,34 +22,66 @@
         "pt-BR": "Camisetas",
         "en": "T-Shirts"
       },
-      "price": 58.00,
+      "price": 38.00,
       "currency": "EUR",
       "images": [
-        "assets/img/placeholder-tee-01.webp",
-        "assets/img/placeholder-look-01.webp"
+        "assets/img/prod-tee-black.webp",
+        "assets/img/cat-tshirts.webp"
       ],
       "sizes": ["S", "M", "L", "XL"],
       "colors": [
-        { "name": "Preto Asfalto / Asphalt Black", "hex": "#0B0B0B" },
-        { "name": "Castanho Café / Espresso", "hex": "#4A3426" },
-        { "name": "Off-White Cru / Raw Ecru", "hex": "#F2EFEA" }
+        { "name": "Preto Asfalto / Pitch Black", "hex": "#111111" },
+        { "name": "Castanho Café / Espresso", "hex": "#3D291E" }
       ],
-      "stock": 14,
+      "stock": 18,
       "badge": "novo",
       "featured": true,
       "description": {
-        "pt-PT": "[PRODUTO DE EXEMPLO] T-shirt de corte boxy em algodão orgânico penteado 320 GSM. Gola canelada de 3cm, costura dupla invertida e serigrafia de alta densidade nas costas.",
-        "pt-BR": "[PRODUTO DE EXEMPLO] Camiseta modelagem boxy em algodão orgânico penteado 320 GSM. Gola canelada de 3cm, costura dupla invertida e silk puff de alta densidade nas costas.",
-        "en": "[EXAMPLE PRODUCT] Boxy fit heavyweight tee crafted from 320 GSM combed organic cotton. 3cm thick ribbed collar, reverse double stitching, and high-density back screenprint."
+        "pt-PT": "T-shirt boxy fit em jersey de algodão orgânico 320 GSM. Estampado frontal caligráfico em serigrafia de alto relevo e gola canelada estruturada.",
+        "pt-BR": "Camiseta boxy fit em malha de algodão orgânico 320 GSM. Estampa frontal caligráfica em silk de alto relevo e gola canelada estruturada.",
+        "en": "Boxy-fit heavyweight tee in 320 GSM organic cotton jersey. Raised front brushstroke screenprint and structured ribbed collar."
       }
     },
     {
-      "id": "sw-002",
-      "sku": "KLT-COL-002",
+      "id": "klt-002",
+      "sku": "KLT-TEE-RED",
       "name": {
-        "pt-PT": "HOODIE BRUTALIST 500GSM — ESPRESSO WASH [EXEMPLO]",
-        "pt-BR": "MOLETOM BRUTALIST 500GSM — ESPRESSO WASH [EXEMPLO]",
-        "en": "BRUTALIST 500GSM HOODIE — ESPRESSO WASH [EXAMPLE]"
+        "pt-PT": "Brushstroke Heavy Tee — Carmesim",
+        "pt-BR": "Camiseta Brushstroke Heavy — Vermelha",
+        "en": "Brushstroke Heavy Tee — Crimson Red"
+      },
+      "category": "t-shirts",
+      "categoryLabel": {
+        "pt-PT": "T-Shirts",
+        "pt-BR": "Camisetas",
+        "en": "T-Shirts"
+      },
+      "price": 38.00,
+      "currency": "EUR",
+      "images": [
+        "assets/img/prod-tee-red.webp"
+      ],
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": [
+        { "name": "Vermelho Carmesim / Crimson", "hex": "#9E1B1B" },
+        { "name": "Preto Asfalto / Pitch Black", "hex": "#111111" }
+      ],
+      "stock": 12,
+      "badge": "novo",
+      "featured": true,
+      "description": {
+        "pt-PT": "Edição pigmentada em vermelho carmesim profundo com lavagem enzimática suave. Corte largo com ombros descaídos e costura dupla.",
+        "pt-BR": "Edição pigmentada em vermelho carmesim profundo com lavagem enzimática suave. Modelagem ampla com ombros caídos e costura dupla.",
+        "en": "Deep crimson garment-dyed edition with soft enzyme wash. Relaxed drop-shoulder silhouette with double-needle stitching."
+      }
+    },
+    {
+      "id": "klt-003",
+      "sku": "KLT-COL-CRM",
+      "name": {
+        "pt-PT": "Paint The Concrete Tee — Cru Artístico",
+        "pt-BR": "Camiseta Paint The Concrete — Off-White",
+        "en": "Paint The Concrete Collection — Ecru"
       },
       "category": "colecoes",
       "categoryLabel": {
@@ -56,132 +89,134 @@
         "pt-BR": "Coleções",
         "en": "Collections"
       },
-      "price": 125.00,
+      "price": 48.00,
       "currency": "EUR",
       "images": [
-        "assets/img/placeholder-hoodie-02.webp",
-        "assets/img/placeholder-look-02.webp"
+        "assets/img/prod-tee-cream.webp",
+        "assets/img/cat-collections.webp"
       ],
       "sizes": ["S", "M", "L", "XL"],
       "colors": [
-        { "name": "Castanho Café / Espresso", "hex": "#4A3426" },
-        { "name": "Preto Profundo / Deep Black", "hex": "#0B0B0B" }
+        { "name": "Off-White Cru / Raw Ecru", "hex": "#EAE6DF" }
       ],
-      "stock": 8,
+      "stock": 9,
       "badge": "novo",
       "featured": true,
       "description": {
-        "pt-PT": "[PRODUTO DE EXEMPLO] Sweatshirt com capuz estruturado em felpa francesa 500 GSM com tingimento ácido artesanal. Ombros descaídos, bolso canguru oculto e etiqueta metálica numerada.",
-        "pt-BR": "[PRODUTO DE EXEMPLO] Moletom com capuz estruturado em french terry 500 GSM com lavagem ácida artesanal. Ombros caídos, bolso canguru oculto e placa metálica numerada.",
-        "en": "[EXAMPLE PRODUCT] Structured 500 GSM French terry hoodie with artisan acid-wash finish. Dropped shoulders, concealed kangaroo pocket, and numbered metal hardware tag."
+        "pt-PT": "Peça central da cápsula arquitetónica. Algodão cru não branqueado com intervenção gráfica abstrata multi-camada e monograma frontal.",
+        "pt-BR": "Peça central da cápsula arquitetônica. Algodão cru não alvejado com intervenção gráfica abstrata multi-camada e monograma frontal.",
+        "en": "Centerpiece of the architectural capsule. Unbleached raw ecru cotton with multi-layer abstract paint splatter graphic and bold monogram."
       }
     },
     {
-      "id": "sw-003",
-      "sku": "KLT-CAP-003",
+      "id": "klt-004",
+      "sku": "KLT-TEE-ESP",
       "name": {
-        "pt-PT": "BONÉ 6-PANEL DISTRESSED — MONOLITH [EXEMPLO]",
-        "pt-BR": "BONÉ 6-PANEL DISTRESSED — MONOLITH [EXEMPLO]",
-        "en": "DISTRESSED 6-PANEL CAP — MONOLITH [EXAMPLE]"
+        "pt-PT": "West Side Testament Tee — Café Expresso",
+        "pt-BR": "Camiseta West Side Testament — Café",
+        "en": "West Side Testament Tee — Espresso"
+      },
+      "category": "t-shirts",
+      "categoryLabel": {
+        "pt-PT": "T-Shirts",
+        "pt-BR": "Camisetas",
+        "en": "T-Shirts"
+      },
+      "price": 42.00,
+      "currency": "EUR",
+      "images": [
+        "assets/img/prod-tee-brown.webp",
+        "assets/img/fresh-drops-model.webp"
+      ],
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": [
+        { "name": "Castanho Café / Espresso", "hex": "#3B271C" },
+        { "name": "Preto Asfalto / Pitch Black", "hex": "#111111" }
+      ],
+      "stock": 15,
+      "badge": "novo",
+      "featured": true,
+      "description": {
+        "pt-PT": "A t-shirt assinatura do lookbook. Tingimento especial em tom café torrado com gráfico tipográfico creme de inspiração costa oeste.",
+        "pt-BR": "A camiseta assinatura do lookbook. Tingimento especial em tom café torrado com gráfico tipográfico creme de inspiração west coast.",
+        "en": "The signature lookbook tee. Custom roasted espresso garment dye featuring cream typography and West Coast archive illustration."
+      }
+    },
+    {
+      "id": "klt-005",
+      "sku": "KLT-CAP-SUN",
+      "name": {
+        "pt-PT": "Sunday Service Trucker Cap — Café",
+        "pt-BR": "Boné Sunday Service Trucker — Café",
+        "en": "KLT Sunday Service Cap — Espresso"
       },
       "category": "bones",
       "categoryLabel": {
         "pt-PT": "Bonés",
         "pt-BR": "Bonés",
-        "en": "Headwear"
+        "en": "Caps"
       },
-      "price": 42.00,
+      "price": 32.00,
       "currency": "EUR",
       "images": [
-        "assets/img/placeholder-cap-03.webp"
+        "assets/img/prod-cap-brown.webp",
+        "assets/img/cat-caps.webp"
       ],
       "sizes": ["ONE SIZE"],
       "colors": [
-        { "name": "Castanho Café / Espresso", "hex": "#4A3426" },
-        { "name": "Cinza Betão / Concrete", "hex": "#7A7A7A" }
+        { "name": "Castanho Café / Espresso", "hex": "#3B271C" },
+        { "name": "Preto Asfalto / Pitch Black", "hex": "#111111" }
       ],
-      "stock": 22,
+      "stock": 24,
       "badge": "novo",
       "featured": true,
       "description": {
-        "pt-PT": "[PRODUTO DE EXEMPLO] Boné desestruturado em sarja de algodão pesado com desgaste manual na pala, bordado 3D frontal e fivela traseira em latão escovado.",
-        "pt-BR": "[PRODUTO DE EXEMPLO] Boné desestruturado em sarja pesada com desgaste manual na aba, bordado 3D frontal e fivela traseira em latão escovado.",
-        "en": "[EXAMPLE PRODUCT] Unstructured heavy cotton twill cap featuring hand-distressed brim detailing, raised 3D front embroidery, and brushed brass strap buckle."
+        "pt-PT": "Boné estruturado de copa alta em sarja de algodão pesado castanho café. Bordado frontal 3D em linha creme e insígnia lateral.",
+        "pt-BR": "Boné estruturado de copa alta em sarja de algodão pesado marrom café. Bordado frontal 3D em linha creme e patch lateral.",
+        "en": "High-crown structured cap in heavy espresso cotton twill. Raised 3D cream front embroidery and side palm insignia."
       }
     },
     {
-      "id": "sw-004",
-      "sku": "KLT-NEW-004",
+      "id": "klt-006",
+      "sku": "KLT-HOD-MON",
       "name": {
-        "pt-PT": "CALÇAS CARGO PARACHUTE — TECHNICAL NYLON [EXEMPLO]",
-        "pt-BR": "CALÇA CARGO PARACHUTE — TECHNICAL NYLON [EXEMPLO]",
-        "en": "PARACHUTE CARGO TROUSERS — TECHNICAL NYLON [EXAMPLE]"
+        "pt-PT": "Monolith 500GSM Hoodie — Preto Asfalto",
+        "pt-BR": "Moletom Monolith 500GSM — Preto Asfalto",
+        "en": "Monolith 500GSM Hoodie — Asphalt Black"
       },
       "category": "novidades",
       "categoryLabel": {
         "pt-PT": "Novidades",
         "pt-BR": "Novidades",
-        "en": "Fresh Drops"
+        "en": "New Arrivals"
       },
-      "price": 138.00,
+      "price": 110.00,
       "currency": "EUR",
       "images": [
-        "assets/img/placeholder-cargo-04.webp"
+        "assets/img/prod-hoodie-black.webp",
+        "assets/img/cat-new.webp"
       ],
       "sizes": ["S", "M", "L", "XL"],
       "colors": [
-        { "name": "Preto Profundo / Deep Black", "hex": "#0B0B0B" },
-        { "name": "Cinza Betão / Concrete", "hex": "#6E6E6E" }
+        { "name": "Preto Asfalto / Pitch Black", "hex": "#111111" },
+        { "name": "Castanho Café / Espresso", "hex": "#3B271C" }
       ],
-      "stock": 6,
+      "stock": 7,
       "badge": "novo",
       "featured": true,
       "description": {
-        "pt-PT": "[PRODUTO DE EXEMPLO] Calças cargo de corte largo em ripstop repelente à água. Seis bolsos táticos com fechos magnéticos, pinças articuladas nos joelhos e ajuste nos tornozelos.",
-        "pt-BR": "[PRODUTO DE EXEMPLO] Calça cargo wide-leg em ripstop repelente à água. Seis bolsos táticos com fechos magnéticos, pences articuladas nos joelhos e ajuste na barra.",
-        "en": "[EXAMPLE PRODUCT] Wide-leg cargo trousers in water-repellent technical ripstop. Six tactical pockets with magnetic closures, articulated knee pleats, and ankle drawcords."
+        "pt-PT": "Sweatshirt com capuz de dupla camada em felpa francesa 500 GSM. Monograma minimalista nas costas e corte arquitetónico boxy.",
+        "pt-BR": "Moletom com capuz de dupla camada em french terry 500 GSM. Monograma minimalista nas costas e modelagem arquitetônica boxy.",
+        "en": "Double-layered hood sweatshirt in heavyweight 500 GSM French terry. Minimalist back monogram print and architectural boxy cut."
       }
     },
     {
-      "id": "sw-005",
-      "sku": "KLT-TEE-005",
+      "id": "klt-007",
+      "sku": "KLT-CRG-OLV",
       "name": {
-        "pt-PT": "T-SHIRT OVERSIZED — NOCTURNAL EDITION [EXEMPLO]",
-        "pt-BR": "CAMISETA OVERSIZED — NOCTURNAL EDITION [EXEMPLO]",
-        "en": "OVERSIZED GRAPHIC TEE — NOCTURNAL EDITION [EXAMPLE]"
-      },
-      "category": "t-shirts",
-      "categoryLabel": {
-        "pt-PT": "T-Shirts",
-        "pt-BR": "Camisetas",
-        "en": "T-Shirts"
-      },
-      "price": 62.00,
-      "currency": "EUR",
-      "images": [
-        "assets/img/placeholder-tee-05.webp"
-      ],
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": [
-        { "name": "Off-White Cru / Raw Ecru", "hex": "#F2EFEA" },
-        { "name": "Preto Profundo / Deep Black", "hex": "#0B0B0B" }
-      ],
-      "stock": 0,
-      "badge": "esgotado",
-      "featured": false,
-      "description": {
-        "pt-PT": "[PRODUTO DE EXEMPLO] Edição limitada numerada com fotografia analógica impressa em meio-tom e tratamento vintage wash.",
-        "pt-BR": "[PRODUTO DE EXEMPLO] Edição limitada numerada com fotografia analógica impressa em meio-tom e acabamento estonado vintage.",
-        "en": "[EXAMPLE PRODUCT] Numbered limited-edition oversized tee featuring halftone analog photography print and vintage enzyme wash."
-      }
-    },
-    {
-      "id": "sw-006",
-      "sku": "KLT-COL-006",
-      "name": {
-        "pt-PT": "CASACO WORKWEAR CANVAS — COFFEE DYE [EXEMPLO]",
-        "pt-BR": "JAQUETA WORKWEAR CANVAS — COFFEE DYE [EXEMPLO]",
-        "en": "WORKWEAR CANVAS JACKET — COFFEE DYE [EXAMPLE]"
+        "pt-PT": "Utility Parachute Cargo — Verde Oliva",
+        "pt-BR": "Calça Utility Parachute Cargo — Verde Oliva",
+        "en": "Utility Parachute Cargo Pants — Olive"
       },
       "category": "colecoes",
       "categoryLabel": {
@@ -189,88 +224,55 @@
         "pt-BR": "Coleções",
         "en": "Collections"
       },
-      "price": 175.00,
+      "price": 95.00,
       "currency": "EUR",
       "images": [
-        "assets/img/placeholder-jacket-06.webp"
+        "assets/img/prod-cargo-olive.webp"
+      ],
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": [
+        { "name": "Verde Oliva / Tactical Olive", "hex": "#4A5238" },
+        { "name": "Preto Asfalto / Pitch Black", "hex": "#111111" }
+      ],
+      "stock": 10,
+      "badge": "novo",
+      "featured": true,
+      "description": {
+        "pt-PT": "Calças cargo de corte amplo em sarja ripstop militar. Bolsos laterais de fole expandido, joelhos articulados e cordão de ajuste na bainha.",
+        "pt-BR": "Calça cargo wide-leg em sarja ripstop militar. Bolsos laterais de fole expandido, joelhos articulados e ajuste na barra.",
+        "en": "Wide-leg utility cargo trousers in military ripstop twill. Expandable bellow side pockets, articulated knees, and drawstring hems."
+      }
+    },
+    {
+      "id": "klt-008",
+      "sku": "KLT-JKT-CNV",
+      "name": {
+        "pt-PT": "Detroit Workwear Canvas Jacket — Café",
+        "pt-BR": "Jaqueta Detroit Workwear Canvas — Café",
+        "en": "Detroit Workwear Canvas Jacket — Espresso"
+      },
+      "category": "novidades",
+      "categoryLabel": {
+        "pt-PT": "Novidades",
+        "pt-BR": "Novidades",
+        "en": "New Arrivals"
+      },
+      "price": 145.00,
+      "currency": "EUR",
+      "images": [
+        "assets/img/prod-jacket-canvas.webp"
       ],
       "sizes": ["M", "L", "XL"],
       "colors": [
         { "name": "Castanho Café / Espresso", "hex": "#4A3426" }
       ],
-      "stock": 4,
+      "stock": 5,
       "badge": "novo",
       "featured": true,
       "description": {
-        "pt-PT": "[PRODUTO DE EXEMPLO] Casaco estruturado em lona de algodão 14oz com gola em bombazina, fecho YKK duplo em metal oxidado e forro acolchoado leve.",
-        "pt-BR": "[PRODUTO DE EXEMPLO] Jaqueta estruturada em lona de algodão 14oz com gola em veludo cotelê, zíper YKK duplo em metal oxidado e forro matelassê.",
-        "en": "[EXAMPLE PRODUCT] Structured 14oz cotton duck canvas jacket with corduroy collar, oxidized dual YKK metal zipper, and lightweight quilted lining."
-      }
-    },
-    {
-      "id": "sw-007",
-      "sku": "KLT-CAP-007",
-      "name": {
-        "pt-PT": "GORRO FISHERMAN RIBBED — MERINO BLEND [EXEMPLO]",
-        "pt-BR": "GORRO FISHERMAN RIBBED — MERINO BLEND [EXEMPLO]",
-        "en": "RIBBED FISHERMAN BEANIE — MERINO BLEND [EXAMPLE]"
-      },
-      "category": "bones",
-      "categoryLabel": {
-        "pt-PT": "Bonés",
-        "pt-BR": "Bonés",
-        "en": "Headwear"
-      },
-      "price": 36.00,
-      "currency": "EUR",
-      "images": [
-        "assets/img/placeholder-beanie-07.webp"
-      ],
-      "sizes": ["ONE SIZE"],
-      "colors": [
-        { "name": "Preto Profundo / Deep Black", "hex": "#0B0B0B" },
-        { "name": "Castanho Café / Espresso", "hex": "#4A3426" },
-        { "name": "Off-White Cru / Raw Ecru", "hex": "#F2EFEA" }
-      ],
-      "stock": 19,
-      "badge": "",
-      "featured": false,
-      "description": {
-        "pt-PT": "[PRODUTO DE EXEMPLO] Gorro curto estilo fisherman em malha canelada densa de lã merino e algodão orgânico com placa metálica minimalista.",
-        "pt-BR": "[PRODUTO DE EXEMPLO] Gorro curto estilo fisherman em tricô canelado denso de lã merino e algodão orgânico com etiqueta metálica minimalista.",
-        "en": "[EXAMPLE PRODUCT] Short-cuff fisherman beanie in dense ribbed merino wool and organic cotton blend with minimalist metal plaque."
-      }
-    },
-    {
-      "id": "sw-008",
-      "sku": "KLT-NEW-008",
-      "name": {
-        "pt-PT": "CROSSBODY TACTICAL BAG — BALLISTIC CORDURA [EXEMPLO]",
-        "pt-BR": "SHOULDER BAG TÁTICA — BALLISTIC CORDURA [EXEMPLO]",
-        "en": "TACTICAL CROSSBODY BAG — BALLISTIC CORDURA [EXAMPLE]"
-      },
-      "category": "novidades",
-      "categoryLabel": {
-        "pt-PT": "Novidades",
-        "pt-BR": "Novidades",
-        "en": "Fresh Drops"
-      },
-      "price": 78.00,
-      "currency": "EUR",
-      "images": [
-        "assets/img/placeholder-bag-08.webp"
-      ],
-      "sizes": ["ONE SIZE"],
-      "colors": [
-        { "name": "Preto Profundo / Deep Black", "hex": "#0B0B0B" }
-      ],
-      "stock": 11,
-      "badge": "novo",
-      "featured": true,
-      "description": {
-        "pt-PT": "[PRODUTO DE EXEMPLO] Mala tiracolo construída em Cordura balística 1000D impermeável, fivela de libertação rápida Cobra e compartimento acolchoado.",
-        "pt-BR": "[PRODUTO DE EXEMPLO] Bolsa transversal construída em Cordura balística 1000D impermeável, fivela de engate rápido Cobra e compartimento acolchoado.",
-        "en": "[EXAMPLE PRODUCT] Crossbody bag engineered from waterproof 1000D ballistic Cordura, quick-release Cobra buckle, and padded tech compartment."
+        "pt-PT": "Casaco workwear em lona de algodão 14oz resistente à abrasão, gola contrastante em bombazina preta e fecho metálico oxidado.",
+        "pt-BR": "Jaqueta workwear em lona de algodão 14oz resistente à abrasão, gola contrastante em veludo cotelê preto e zíper metálico oxidado.",
+        "en": "Heavy-duty 14oz duck canvas workwear jacket with contrasting black corduroy collar and oxidized brass zipper."
       }
     }
   ]
